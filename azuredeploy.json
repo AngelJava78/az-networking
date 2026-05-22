@@ -29,6 +29,14 @@
         "networkInterfaces_VM2_nic_name": {
             "defaultValue": "VM2-nic",
             "type": "String"
+        },
+        "vmSize": {
+            "defaultValue": "Standard_D2s_v3",
+            "type": "String"
+        },
+        "sku": {
+            "defaultValue": "24.04-LTS",
+            "type": "String"
         }
     },
     "functions": [],
@@ -78,13 +86,13 @@
             ],
             "properties": {
                 "hardwareProfile": {
-                    "vmSize": "Standard_DS1_v2"
+                    "vmSize": "[parameters('vmSize')]"
                 },
                 "storageProfile": {
                     "imageReference": {
                         "publisher": "Canonical",
                         "offer": "UbuntuServer",
-                        "sku": "18.04-LTS",
+                        "sku": "[parameters('sku')]",
                         "version": "latest"
                     },
                     "osDisk": {
@@ -136,13 +144,13 @@
             ],
             "properties": {
                 "hardwareProfile": {
-                    "vmSize": "Standard_DS1_v2"
+                    "vmSize": "[parameters('vmSize')]"
                 },
                 "storageProfile": {
                     "imageReference": {
                         "publisher": "Canonical",
                         "offer": "UbuntuServer",
-                        "sku": "18.04-LTS",
+                        "sku": "[parameters('sku')]",
                         "version": "latest"
                     },
                     "osDisk": {
